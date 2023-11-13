@@ -1,0 +1,14 @@
+<% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+<% end %>
+
+<%= form_with model: @user, method: "patch" do |form| %>
+    <%= form.label :username, "Your username: " %>
+    <%= form.text_field :username %>
+    <%= form.label :email, "Your email address: " %>
+    <%= form.email_field :email, placeholder: "your-email@example.com" %>
+    <%= form.label :password, "Your password: " %>
+    <%= form.password_field :password %>
+    <%= form.submit "Create" %>
+    <%= form.hidden_field :authenticity_token %>
+<% end %>
